@@ -12,7 +12,8 @@
     "@vercel/og": "latest",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-icons": "^4.7.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.6",
