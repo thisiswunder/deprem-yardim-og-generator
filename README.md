@@ -5,30 +5,15 @@ description: Compute and generate dynamic social card images with React componen
 framework: Next.js
 useCase: Edge Functions
 css: Tailwind
-deployUrl: https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/edge-functions/vercel-og-nextjs&project-name=vercel-og-nextjs&repository-name=vercel-og-nextjs
-demoUrl: https://og-examples.vercel.sh/api/static
-relatedTemplates: 
+deployUrl: https://vercel.com/new/clone?repository-url=https://github.com/thisiswunder/deprem-yardim-og-generator&project-name=deprem-yardim-og-generator&repository-name=deprem-yardim-og-generator
+relatedTemplates:
   - nextjs-boilerplate
   - aws-s3-image-upload-nextjs
   - platforms-starter-kit
   - blog-starter-kit
 ---
 
-# Vercel OG + Next.js
-
-This example shows how to use [Vercel OG](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation) with Next.js.
-
-## Demo
-
-- [Static Text](https://og-examples.vercel.sh/api/static)
-- [Vercel Card](https://og-examples.vercel.sh/api/vercel)
-- [Dynamic Text from URL Query](https://og-examples.vercel.sh/api/param)
-- [Embed SVG Image](https://og-examples.vercel.sh/api/image-svg)
-- [Dynamic PNG Image Based on URL Queries](https://og-examples.vercel.sh/api/dynamic-image?username=vercel)
-- [Custom Font](https://og-examples.vercel.sh/api/custom-font)
-- [Emoji](https://og-examples.vercel.sh/api/emoji)
-- [Languages](https://og-examples.vercel.sh/api/language)
-- [Encrypted Token](https://og-examples.vercel.sh/encrypted/a)
+# Deprem Yardım OG Image Generator
 
 ## How to Use
 
@@ -38,16 +23,18 @@ You can choose from one of the following two methods to use this repository:
 
 Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/edge-functions/vercel-og-nextjs&project-name=vercel-og-nextjs&repository-name=vercel-og-nextjs)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/thisiswunder/deprem-yardim-og-generator&project-name=deprem-yardim-og-generator&repository-name=deprem-yardim-og-generator)
+
+This project requires Mapbox access token. Make sure to create one and add your access token to your Vercel project environment variables as MAPBOX_ACCESS_TOKEN
 
 ### Clone and Deploy
 
 Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
 
 ```bash
-npx create-next-app --example https://github.com/vercel/examples/tree/main/edge-functions/vercel-og-nextjs
+npx create-next-app --example https://github.com/thisiswunder/deprem-yardim-og-generator
 # or
-yarn create next-app --example https://github.com/vercel/examples/tree/main/edge-functions/vercel-og-nextjs
+yarn create next-app --example https://github.com/thisiswunder/deprem-yardim-og-generator
 ```
 
 Next, run Next.js in development mode:
@@ -60,6 +47,31 @@ npm run dev
 
 yarn
 yarn dev
+```
+
+Then create and Mapbox account and add an access token to your .env file like so:
+
+```bash
+MAPBOX_ACCESS_TOKEN=<YOUR_TOKEN>
+```
+
+## Usage
+
+API
+GET /api/dynamic-image
+
+Params
+
+```
+loc: string[];
+address: string;
+entry: string;
+```
+
+Example params
+
+```
+YOUR_HOST/api/dynamic-image?loc=37.5749643,36.9334448&address=Foo&entry=Bar
 ```
 
 Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=edge-middleware-eap) ([Documentation](https://nextjs.org/docs/deployment)).
