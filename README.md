@@ -68,10 +68,15 @@ address: string;
 entry: string;
 ```
 
-Example params
+Sample with params
 
 ```
 YOUR_HOST/api/dynamic-image?loc=37.5749643,36.9334448&address=Foo&entry=Bar
 ```
+Sample output
+
+![dynamic-image (1)](https://user-images.githubusercontent.com/1084392/217416469-5b3542ce-1da9-46a1-8ad0-73370928697f.png)
+
+
 
 Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=edge-middleware-eap) ([Documentation](https://nextjs.org/docs/deployment)).
