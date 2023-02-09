@@ -64,11 +64,11 @@ const StaticMap = (props: IStaticMap) => {
   const apiUrl = 'https://maps.googleapis.com/maps/api/staticmap?';
   const center = `${lat},${lng}`;
   const zoom = '17';
-  const size = '450x550';
+  const size = '225x275';
   const mapType = 'roadmap';
   const markers = `color:red%7C${center}`;
   const accessToken = `${process.env.GOOGLE_STATIC_API_KEY}`;
-  const scale = '1';
+  const scale = '2';
   const style1 =
     'feature:administrative.land_parcel%7Celement:labels%7Cvisibility:off';
   const style2 =
