@@ -1,12 +1,11 @@
 import { ImageResponse } from '@vercel/og';
 import { NextRequest } from 'next/server';
-import { RiMapPinUserLine } from 'react-icons/ri';
 
 export const config = {
   runtime: 'edge',
 };
 
-const isAccesTokenExists = process.env.MAPBOX_ACCESS_TOKEN ? true : false;
+const isAccesTokenExists = process.env.GOOGLE_STATIC_API_KEY ? true : false;
 
 const UserPinIcon = () => {
   return (
@@ -60,19 +59,21 @@ const StaticMap = (props: IStaticMap) => {
     coordinates: [Number(lat), Number(lng)],
   };
 
-  const apiUrl = 'https://api.mapbox.com/styles/v1/mapbox/streets-v12/static';
-  const geoJsonConverter = `geojson(${encodeURIComponent(
-    JSON.stringify(marker),
-  )})`;
-  const pointAndZoom = `${lat},${lng},13`;
-  const imageDimesion = '444x544';
+  // https://maps.googleapis.com/maps/api/staticmap?
+  const apiUrl = 'https://maps.googleapis.com/maps/api/staticmap?';
+  const center = `${lat},${lng}`;
+  const zoom = '16';
+  const size = '450x550';
+  const mapType = 'roadmap';
+  const markers = `color:red%7C${center}`;
+  const accessToken = `${process.env.GOOGLE_STATIC_API_KEY}`;
 
-  const accessToken = `access_token=${process.env.MAPBOX_ACCESS_TOKEN}`;
-  const FULL_URL = `${apiUrl}/${geoJsonConverter}/${pointAndZoom}/${imageDimesion}?${accessToken}`;
+  const FULL_URL = `${apiUrl}center=${center}&zoom=${zoom}&size=${size}&maptype=${mapType}&markers=${markers}&key=${accessToken}`;
+  console.log('asdasd', FULL_URL);
   return isAccesTokenExists ? (
     <img alt="avatar" width="444" src={FULL_URL} />
   ) : (
-    <>MAPBOX_ACCESS_TOKEN is not provided</>
+    <>GOOGLE_STATIC_API_KEY is not provided</>
   );
 };
 
